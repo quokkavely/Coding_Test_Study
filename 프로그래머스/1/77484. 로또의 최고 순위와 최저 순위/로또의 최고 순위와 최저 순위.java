@@ -11,12 +11,12 @@ class Solution {
                 win.add(i);
             }  
         
-        for(int i = 0; i < lottos.length ; i++) {
-            if(win.contains(lottos[i])) {
+        for(int i : lottos) {
+            if(win.contains(i)) {
                 maxCount ++;
             }
             
-            if(lottos[i]==0) {
+            if(i==0) {
                 zeroCount ++;
             }
         }
