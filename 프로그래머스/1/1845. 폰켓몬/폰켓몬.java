@@ -6,17 +6,7 @@ class Solution {
         
         Map<Integer,Integer> hash = new HashMap<>();
         
-        for(int i = 0; i < nums.length; i++) {
-            
-            if(hash.containsKey(nums[i])) {
-                int value = hash.get(nums[i]);
-                hash.put(nums[i], value++);
-           
-            }
-            
-            hash.put(nums[i], 1);
-            
-        }
+        for(int i = 0; i < nums.length; i++) hash.put(nums[i], 1);
         
         return hash.size() > nums.length/2 ? nums.length/2 : hash.size() ;
    
