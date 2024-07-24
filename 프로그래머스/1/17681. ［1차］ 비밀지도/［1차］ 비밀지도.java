@@ -11,7 +11,7 @@ class Solution {
             for(int j =0 ; j < n ; j++) {
             if(answer1[i].charAt(j) == '1' || answer2[i].charAt(j) == '1' ) {
                 str += "#";
-            }else{
+            } else {
                 str+=" ";
             }
         }
