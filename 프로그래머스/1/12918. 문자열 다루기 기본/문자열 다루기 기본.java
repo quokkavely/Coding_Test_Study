@@ -4,7 +4,7 @@ class Solution {
                 return false;
             }
 
-            String number = "0123456789";
+            String number = "012345789";
 
             for(char c : s.toCharArray()) {
                 if(number.indexOf(c) == -1){
