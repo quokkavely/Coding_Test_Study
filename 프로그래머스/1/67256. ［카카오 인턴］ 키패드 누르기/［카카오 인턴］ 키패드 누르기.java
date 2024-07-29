@@ -53,9 +53,7 @@ class Solution {
     
         
         public static int clickCenter(int previousKey, int currentKey) {
-            
-            if (previousKey == 0) previousKey = 11; 
-            if (currentKey == 0) currentKey = 11; 
+   
 
             int fromX = (previousKey - 1) / 3;
             int fromY = (previousKey - 1) % 3;
