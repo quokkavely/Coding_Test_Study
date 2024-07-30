@@ -3,36 +3,34 @@ import java.util.stream.Collectors;
 
 class Solution {
     public int solution(int n, int[] lost, int[] reserve) {
-   
+        // Sort arrays for consistent processing
         Arrays.sort(lost);
         Arrays.sort(reserve);
+        
+        // Convert arrays to sets for easy removal
+        Set<Integer> lostSet = Arrays.stream(lost).boxed().collect(Collectors.toSet());
+        Set<Integer> reserveSet = Arrays.stream(reserve).boxed().collect(Collectors.toSet());
 
-        List<Integer> reserveList = Arrays.stream(reserve).boxed().collect(Collectors.toList());
-        int count = 0;
+        // Handle students who are both in lost and reserve
+        Set<Integer> intersection = new HashSet<>(lostSet);
+        intersection.retainAll(reserveSet);
+        lostSet.removeAll(intersection);
+        reserveSet.removeAll(intersection);
 
-        List<Integer> lostList = Arrays.stream(lost).boxed().collect(Collectors.toList());
-        List<Integer> newLostList = new ArrayList<>();
+        // Start with the total number of students who can participate
+        int answer = n - lostSet.size();
 
-        for (int l : lostList) {
-            if (reserveList.contains(l)) {
-                reserveList.remove(Integer.valueOf(l));
-                count++;
-            } else {
-                newLostList.add(l);
+        // Try to lend reserve uniforms to lost students
+        for (int r : reserveSet) {
+            if (lostSet.contains(r - 1)) {
+                lostSet.remove(r - 1);
+                answer++;
+            } else if (lostSet.contains(r + 1)) {
+                lostSet.remove(r + 1);
+                answer++;
             }
         }
 
-        for (int l : newLostList) {
-            if (reserveList.contains(l - 1)) {
-                count++;
-                reserveList.remove(Integer.valueOf(l - 1));
-            } else if (reserveList.contains(l + 1)) {
-                count++;
-                reserveList.remove(Integer.valueOf(l + 1));
-            }
-        }
-
-
-        return n - lostList.size() + count;
+        return answer;
     }
 }
