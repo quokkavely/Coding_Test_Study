@@ -1,10 +1,5 @@
-# 팀 규칙 및 정보
 
-## 규칙
 
-- 매일 아침 8시 30분까지 모여서 토론하기
-- 문제는 꼭 풀어보기 (못 풀었으면 방향성이라도 제시)
-- 지각하면 다음날 커피 세 잔
-
-## 목표
-- 프로그래머스 Lv1 ~ Lv2 전체 풀어보기
+## Daily Coding Challenge - Problem Solving
+- 🪄 프로그래머스, 백준 을 통해 알고리즘/SQL 문제를 풀고 기록하는 공간
+- This is a auto push repository for Baekjoon Online Judge created with BaekjoonHub.
